@@ -10,6 +10,7 @@
 #include <QScrollArea>
 #include <QFileDialog>
 #include <QPainter>
+#include <QMessageBox>
 #include "mainwindow.h"
 #include "ui_MainWindow.h"
 #include "TCPListener.h"
@@ -74,7 +75,17 @@ namespace ui {
         //给label_2添加事件过滤器
         ui->label_2->installEventFilter(this);
 
+        //将actionfileload的信号与槽函数关联
+        connect(ui->actionloadFile, &QAction::triggered, this, &MainWindow::on_Button3_clicked);
+        connect(ui->actiondataPicture, &QAction::triggered, this, &MainWindow::on_pictureShowBtn_clicked);
 
+        ui->actiondataPicture->setEnabled(false);
+        //将ui->menu_6设置为不可用
+        ui->menu_5->setEnabled(false);
+        ui->actiontriangleColor_2->setChecked(true);
+
+        //设置窗口图标
+        setWindowIcon(QIcon("./qss/3.png"));
     }
 
     MainWindow::~MainWindow() {
@@ -125,6 +136,11 @@ namespace ui {
     void MainWindow::on_Button3_clicked() {
         //调出文件选择框
         QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Text Files (*.txt)"));
+        //若文件打开失败，弹出报错窗口
+        if (fileName.isEmpty()) {
+            QMessageBox::warning(this, tr("Warning"), tr("Failed to open file!"));
+            return;
+        }
         mesh = Mesh(fileName.toStdString());
         string s;
         s += "File loaded. Filename:";
@@ -140,6 +156,9 @@ namespace ui {
         mesh.solve();
         //设置按键5可用
         ui->Button5->setEnabled(true);
+        ui->actiondataPicture->setEnabled(true);
+        ui->pictureShowBtn->setEnabled(true);
+        ui->menu_5->setEnabled(true);
         ui->label->setText("Solved.");
     }
 
@@ -151,8 +170,6 @@ namespace ui {
         };
         //设置按键6可用
         ui->Button6->setEnabled(true);
-        ui->pictureShowBtn->setEnabled(true);
-
     }
 
     void MainWindow::on_Button6_clicked() {
@@ -666,6 +683,8 @@ namespace ui {
     bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
         //若label上出现绘图事件
         if (watched == ui->label_2 && event->type() == QEvent::Paint && drawFlag == 1) {
+            //清空画布
+            ui->label_2->clear();
             //获取label的宽度
             int width = ui->label_2->width();
             //获取label的高度
@@ -731,7 +750,6 @@ namespace ui {
                                      yPixel[el2no1[i]]);
                 }
             }
-
             //绘制点
             if (drawPointFlag) {
                 if (!drawPointColorFlag) {
@@ -741,7 +759,6 @@ namespace ui {
                     }
                 } else {
                     //根据record的值设置点的颜色，最高为红色，最低为蓝色
-
                     for (int i = 0; i < xSize; i++) {
                         int color = (int) ((record[i] - recordMin) / (recordMax - recordMin) * 255);
                         painter.setPen(QPen(QColor(color, 0, 255 - color), 6));
@@ -864,4 +881,117 @@ namespace ui {
         }
         return QObject::eventFilter(watched, event);
     }
+
+    void MainWindow::on_actionguanyu_triggered() {
+        QMessageBox::about(this, "关于", "作者：王磊\n学号：2022012972\n班级：未央-电21");
+    }
+
+    void MainWindow::on_actionAMOLED_triggered() {
+        //切换主题为AMOLED
+        QFile file("./qss/AMOLED.qss");
+        file.open(QFile::ReadOnly);
+        QString styleSheet = QString(file.readAll());
+        qApp->setStyleSheet(styleSheet);
+    }
+
+    void MainWindow::on_actionConsoleStyle_triggered() {
+        //切换主题为ConsoleStyle
+        QFile file("./qss/ConsoleStyle.qss");
+        file.open(QFile::ReadOnly);
+        QString styleSheet = QString(file.readAll());
+        qApp->setStyleSheet(styleSheet);
+
+    }
+
+    void MainWindow::on_actionManjaroMix_triggered() {
+        //切换主题为ManjaroMix
+        QFile file("./qss/ManjaroMix.qss");
+        file.open(QFile::ReadOnly);
+        QString styleSheet = QString(file.readAll());
+        qApp->setStyleSheet(styleSheet);
+
+    }
+
+    void MainWindow::on_actionMatrialDark_triggered() {
+        //切换主题为MatrialDark
+        QFile file("./qss/MaterialDark.qss");
+        file.open(QFile::ReadOnly);
+        QString styleSheet = QString(file.readAll());
+        qApp->setStyleSheet(styleSheet);
+    }
+
+    void MainWindow::on_actiondefault_triggered() {
+        //使用默认主题
+        qApp->setStyleSheet("");
+    }
+
+    void MainWindow::on_actionpoint_2_triggered() {
+        if(ui->actionpoint_2->isChecked()){
+            drawPointFlag=true;
+        }
+        else{
+            drawPointFlag=false;
+        }
+        drawFlag=true;
+        update();
+    }
+
+    void MainWindow::on_actionpointColor_triggered() {
+        if(ui->actionpointColor->isChecked()){
+            drawPointColorFlag=true;
+        }
+        else{
+            drawPointColorFlag=false;
+        }
+        drawFlag=true;
+        update();
+    }
+
+    void MainWindow::on_actiontriangle_2_triggered() {
+        if(ui->actiontriangle_2->isChecked()){
+            drawTriangleFlag=true;
+        }
+        else{
+            drawTriangleFlag=false;
+        }
+        drawFlag=true;
+        update();
+    }
+
+    void MainWindow::on_actiontriangleColor_2_triggered() {
+        if(ui->actiontriangleColor_2->isChecked()){
+            drawTriangleColorFlag=true;
+        }
+        else{
+            drawTriangleColorFlag=false;
+        }
+        drawFlag=true;
+        update();
+    }
+
+    void MainWindow::on_actionGND_triggered() {
+        if(ui->actionGND->isChecked()){
+            drawGNDFlag=true;
+        }
+        else{
+            drawGNDFlag=false;
+        }
+        drawFlag=true;
+        update();
+
+    }
+
+    void MainWindow::on_actionHV_triggered() {
+        if(ui->actionHV->isChecked()){
+            drawHVFlag=true;
+        }
+        else{
+            drawHVFlag=false;
+        }
+        drawFlag=true;
+        update();
+
+    }
+
+
 } // ui

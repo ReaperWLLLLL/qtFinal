@@ -25,5 +25,4 @@ public:
     Component& operator=(const Component& a);
 };
 
-
 #endif //FINALHW_COMPONENT_H

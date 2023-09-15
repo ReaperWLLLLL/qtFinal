@@ -68,6 +68,33 @@ namespace ui {
 
         void on_checkBox_del_stateChanged(int arg1);
 
+        //添加菜单栏的槽函数
+        void on_actionguanyu_triggered();
+
+        void on_actionAMOLED_triggered();
+
+        void on_actionConsoleStyle_triggered();
+
+        void on_actionManjaroMix_triggered();
+
+        void on_actionMatrialDark_triggered();
+
+        void on_actiondefault_triggered();
+
+        void on_actionpoint_2_triggered();
+
+        void on_actionpointColor_triggered();
+
+        void on_actiontriangle_2_triggered();
+
+        void on_actiontriangleColor_2_triggered();
+
+        void on_actionGND_triggered();
+
+        void on_actionHV_triggered();
+
+
+
 
 
 
@@ -81,7 +108,6 @@ namespace ui {
         bool drawFlag = false;//是否绘制
         bool drawTriangleFlag = false;//是否绘制三角形
         bool drawTriangleColorFlag = true;//是否绘制三角形颜色
-        bool drawLineColorFlag = false;//是否绘制线颜色
         bool drawPointFlag = false;//是否绘制点
         bool drawPointColorFlag = false;//是否绘制点颜色
         bool drawHVFlag = false;//是否绘制高压边界

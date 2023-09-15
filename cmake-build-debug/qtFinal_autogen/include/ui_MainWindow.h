@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
@@ -34,7 +35,23 @@ class Ui_MainWindow
 {
 public:
     QAction *actionguanyu;
-    QAction *actionhj;
+    QAction *actionopenTcp;
+    QAction *actioncloseTcp;
+    QAction *actionfile;
+    QAction *actionloadFile;
+    QAction *actiondataPicture;
+    QAction *actionAMOLED;
+    QAction *actionConsoleStyle;
+    QAction *actionManjaroMix;
+    QAction *actionMatrialDark;
+    QAction *actionpoint_2;
+    QAction *actiontriangleColor;
+    QAction *actiontriangle_2;
+    QAction *actiontriangleColor_2;
+    QAction *actionpointColor;
+    QAction *actiondefault;
+    QAction *actionHV;
+    QAction *actionGND;
     QWidget *centralwidget;
     QGridLayout *gridLayout_3;
     QGridLayout *gridLayout_2;
@@ -95,6 +112,11 @@ public:
     QMenu *menu;
     QMenu *menu_2;
     QMenu *menu_3;
+    QMenu *menu_4;
+    QMenu *menu_5;
+    QMenu *menu_6;
+    QMenu *menu_7;
+    QMenu *menu_8;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *ui__MainWindow)
@@ -107,11 +129,56 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(ui__MainWindow->sizePolicy().hasHeightForWidth());
         ui__MainWindow->setSizePolicy(sizePolicy);
+        QIcon icon;
+        QString iconThemeName = QString::fromUtf8("weather-fog");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon.addFile(QString::fromUtf8(":/icon/qss/3.png"), QSize(), QIcon::Normal, QIcon::Off);
+        }
+        ui__MainWindow->setWindowIcon(icon);
         actionguanyu = new QAction(ui__MainWindow);
         actionguanyu->setObjectName("actionguanyu");
-        actionhj = new QAction(ui__MainWindow);
-        actionhj->setObjectName("actionhj");
-        actionhj->setCheckable(true);
+        actionopenTcp = new QAction(ui__MainWindow);
+        actionopenTcp->setObjectName("actionopenTcp");
+        actioncloseTcp = new QAction(ui__MainWindow);
+        actioncloseTcp->setObjectName("actioncloseTcp");
+        actionfile = new QAction(ui__MainWindow);
+        actionfile->setObjectName("actionfile");
+        actionloadFile = new QAction(ui__MainWindow);
+        actionloadFile->setObjectName("actionloadFile");
+        actiondataPicture = new QAction(ui__MainWindow);
+        actiondataPicture->setObjectName("actiondataPicture");
+        actionAMOLED = new QAction(ui__MainWindow);
+        actionAMOLED->setObjectName("actionAMOLED");
+        actionConsoleStyle = new QAction(ui__MainWindow);
+        actionConsoleStyle->setObjectName("actionConsoleStyle");
+        actionManjaroMix = new QAction(ui__MainWindow);
+        actionManjaroMix->setObjectName("actionManjaroMix");
+        actionMatrialDark = new QAction(ui__MainWindow);
+        actionMatrialDark->setObjectName("actionMatrialDark");
+        actionpoint_2 = new QAction(ui__MainWindow);
+        actionpoint_2->setObjectName("actionpoint_2");
+        actionpoint_2->setCheckable(true);
+        actiontriangleColor = new QAction(ui__MainWindow);
+        actiontriangleColor->setObjectName("actiontriangleColor");
+        actiontriangle_2 = new QAction(ui__MainWindow);
+        actiontriangle_2->setObjectName("actiontriangle_2");
+        actiontriangle_2->setCheckable(true);
+        actiontriangleColor_2 = new QAction(ui__MainWindow);
+        actiontriangleColor_2->setObjectName("actiontriangleColor_2");
+        actiontriangleColor_2->setCheckable(true);
+        actionpointColor = new QAction(ui__MainWindow);
+        actionpointColor->setObjectName("actionpointColor");
+        actionpointColor->setCheckable(true);
+        actiondefault = new QAction(ui__MainWindow);
+        actiondefault->setObjectName("actiondefault");
+        actionHV = new QAction(ui__MainWindow);
+        actionHV->setObjectName("actionHV");
+        actionHV->setCheckable(true);
+        actionGND = new QAction(ui__MainWindow);
+        actionGND->setObjectName("actionGND");
+        actionGND->setCheckable(true);
         centralwidget = new QWidget(ui__MainWindow);
         centralwidget->setObjectName("centralwidget");
         gridLayout_3 = new QGridLayout(centralwidget);
@@ -476,6 +543,22 @@ public:
         menu_3->setObjectName("menu_3");
         sizePolicy6.setHeightForWidth(menu_3->sizePolicy().hasHeightForWidth());
         menu_3->setSizePolicy(sizePolicy6);
+        menu_4 = new QMenu(menu_3);
+        menu_4->setObjectName("menu_4");
+        menu_5 = new QMenu(menu_3);
+        menu_5->setObjectName("menu_5");
+        menu_5->setGeometry(QRect(321, 173, 117, 111));
+        menu_6 = new QMenu(menu_5);
+        menu_6->setObjectName("menu_6");
+        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy7.setHorizontalStretch(0);
+        sizePolicy7.setVerticalStretch(0);
+        sizePolicy7.setHeightForWidth(menu_6->sizePolicy().hasHeightForWidth());
+        menu_6->setSizePolicy(sizePolicy7);
+        menu_7 = new QMenu(menu_5);
+        menu_7->setObjectName("menu_7");
+        menu_8 = new QMenu(menu_5);
+        menu_8->setObjectName("menu_8");
         ui__MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(ui__MainWindow);
         statusbar->setObjectName("statusbar");
@@ -485,7 +568,24 @@ public:
         menubar->addAction(menu_2->menuAction());
         menubar->addAction(menu_3->menuAction());
         menu->addAction(actionguanyu);
-        menu_3->addAction(actionhj);
+        menu_2->addAction(actionloadFile);
+        menu_2->addAction(actiondataPicture);
+        menu_3->addAction(menu_4->menuAction());
+        menu_3->addAction(menu_5->menuAction());
+        menu_4->addAction(actionAMOLED);
+        menu_4->addAction(actionConsoleStyle);
+        menu_4->addAction(actionManjaroMix);
+        menu_4->addAction(actionMatrialDark);
+        menu_4->addAction(actiondefault);
+        menu_5->addAction(menu_6->menuAction());
+        menu_5->addAction(menu_7->menuAction());
+        menu_5->addAction(menu_8->menuAction());
+        menu_6->addAction(actionpoint_2);
+        menu_6->addAction(actionpointColor);
+        menu_7->addAction(actiontriangle_2);
+        menu_7->addAction(actiontriangleColor_2);
+        menu_8->addAction(actionHV);
+        menu_8->addAction(actionGND);
 
         retranslateUi(ui__MainWindow);
 
@@ -494,9 +594,26 @@ public:
 
     void retranslateUi(QMainWindow *ui__MainWindow)
     {
-        ui__MainWindow->setWindowTitle(QCoreApplication::translate("ui::MainWindow", "MainWindow", nullptr));
+        ui__MainWindow->setWindowTitle(QCoreApplication::translate("ui::MainWindow", "COMSOL Mini", nullptr));
         actionguanyu->setText(QCoreApplication::translate("ui::MainWindow", "\345\205\263\344\272\216", nullptr));
-        actionhj->setText(QCoreApplication::translate("ui::MainWindow", "\344\270\273\351\242\230", nullptr));
+        actionopenTcp->setText(QCoreApplication::translate("ui::MainWindow", "\346\211\223\345\274\200\346\234\254\345\234\260\347\233\221\345\220\254\347\253\257\345\217\243", nullptr));
+        actioncloseTcp->setText(QCoreApplication::translate("ui::MainWindow", "\345\205\263\351\227\255\347\233\221\345\220\254\344\277\235\345\255\230\346\226\207\344\273\266", nullptr));
+        actionfile->setText(QCoreApplication::translate("ui::MainWindow", "\350\257\273\345\217\226\346\226\207\344\273\266", nullptr));
+        actionloadFile->setText(QCoreApplication::translate("ui::MainWindow", "\350\257\273\345\217\226\346\226\207\344\273\266", nullptr));
+        actiondataPicture->setText(QCoreApplication::translate("ui::MainWindow", "\346\225\260\346\215\256\345\217\257\350\247\206\345\214\226", nullptr));
+        actionAMOLED->setText(QCoreApplication::translate("ui::MainWindow", "AMOLED", nullptr));
+        actionConsoleStyle->setText(QCoreApplication::translate("ui::MainWindow", "ConsoleStyle", nullptr));
+        actionManjaroMix->setText(QCoreApplication::translate("ui::MainWindow", "ManjaroMix", nullptr));
+        actionMatrialDark->setText(QCoreApplication::translate("ui::MainWindow", "MatrialDark", nullptr));
+        actionpoint_2->setText(QCoreApplication::translate("ui::MainWindow", "\347\273\230\345\210\266\346\225\243\347\202\271", nullptr));
+        actiontriangleColor->setText(QCoreApplication::translate("ui::MainWindow", "\344\270\211\350\247\222\345\275\242\344\270\212\350\211\262", nullptr));
+        actiontriangle_2->setText(QCoreApplication::translate("ui::MainWindow", "\347\273\230\345\210\266\344\270\211\350\247\222\345\275\242", nullptr));
+        actiontriangle_2->setIconText(QCoreApplication::translate("ui::MainWindow", "\344\270\211\350\247\222\345\275\242\344\270\212\350\211\262", nullptr));
+        actiontriangleColor_2->setText(QCoreApplication::translate("ui::MainWindow", "\344\270\211\350\247\222\345\275\242\344\270\212\350\211\262", nullptr));
+        actionpointColor->setText(QCoreApplication::translate("ui::MainWindow", "\346\225\243\347\202\271\344\270\212\350\211\262", nullptr));
+        actiondefault->setText(QCoreApplication::translate("ui::MainWindow", "default", nullptr));
+        actionHV->setText(QCoreApplication::translate("ui::MainWindow", "\347\273\230\345\210\266\351\253\230\345\216\213\350\276\271\347\225\214", nullptr));
+        actionGND->setText(QCoreApplication::translate("ui::MainWindow", "\347\273\230\345\210\266\344\275\216\345\216\213\350\276\271\347\225\214", nullptr));
         label_3->setText(QCoreApplication::translate("ui::MainWindow", "\345\212\237\350\203\275\345\214\272", nullptr));
         label_6->setText(QCoreApplication::translate("ui::MainWindow", "TCP\347\253\257\345\217\243\346\216\245\346\224\266\346\225\260\346\215\256", nullptr));
         Button1->setText(QCoreApplication::translate("ui::MainWindow", "\346\211\223\345\274\200\346\234\254\345\234\260\347\233\221\345\220\254\347\253\257\345\217\243", nullptr));
@@ -522,6 +639,11 @@ public:
         menu->setTitle(QCoreApplication::translate("ui::MainWindow", "\345\274\200\345\247\213", nullptr));
         menu_2->setTitle(QCoreApplication::translate("ui::MainWindow", "\346\223\215\344\275\234", nullptr));
         menu_3->setTitle(QCoreApplication::translate("ui::MainWindow", "\351\200\211\351\241\271", nullptr));
+        menu_4->setTitle(QCoreApplication::translate("ui::MainWindow", "\344\270\273\351\242\230", nullptr));
+        menu_5->setTitle(QCoreApplication::translate("ui::MainWindow", "\345\217\257\350\247\206\345\214\226", nullptr));
+        menu_6->setTitle(QCoreApplication::translate("ui::MainWindow", "\346\225\243\347\202\271", nullptr));
+        menu_7->setTitle(QCoreApplication::translate("ui::MainWindow", "\344\270\211\350\247\222\345\275\242", nullptr));
+        menu_8->setTitle(QCoreApplication::translate("ui::MainWindow", "\350\276\271\347\272\277", nullptr));
     } // retranslateUi
 
 };

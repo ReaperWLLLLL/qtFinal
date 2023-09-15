@@ -17,7 +17,11 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>COMSOL Mini</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="weather-fog" resource="../cmake-build-debug/resource.qrc">
+    <normaloff>:/icon/qss/3.png</normaloff>:/icon/qss/3.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
@@ -513,6 +517,8 @@
     <property name="title">
      <string>操作</string>
     </property>
+    <addaction name="actionloadFile"/>
+    <addaction name="actiondataPicture"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="sizePolicy">
@@ -524,7 +530,61 @@
     <property name="title">
      <string>选项</string>
     </property>
-    <addaction name="actionhj"/>
+    <widget class="QMenu" name="menu_4">
+     <property name="title">
+      <string>主题</string>
+     </property>
+     <addaction name="actionAMOLED"/>
+     <addaction name="actionConsoleStyle"/>
+     <addaction name="actionManjaroMix"/>
+     <addaction name="actionMatrialDark"/>
+     <addaction name="actiondefault"/>
+    </widget>
+    <widget class="QMenu" name="menu_5">
+     <property name="geometry">
+      <rect>
+       <x>321</x>
+       <y>173</y>
+       <width>117</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>可视化</string>
+     </property>
+     <widget class="QMenu" name="menu_6">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="title">
+       <string>散点</string>
+      </property>
+      <addaction name="actionpoint_2"/>
+      <addaction name="actionpointColor"/>
+     </widget>
+     <widget class="QMenu" name="menu_7">
+      <property name="title">
+       <string>三角形</string>
+      </property>
+      <addaction name="actiontriangle_2"/>
+      <addaction name="actiontriangleColor_2"/>
+     </widget>
+     <widget class="QMenu" name="menu_8">
+      <property name="title">
+       <string>边线</string>
+      </property>
+      <addaction name="actionHV"/>
+      <addaction name="actionGND"/>
+     </widget>
+     <addaction name="menu_6"/>
+     <addaction name="menu_7"/>
+     <addaction name="menu_8"/>
+    </widget>
+    <addaction name="menu_4"/>
+    <addaction name="menu_5"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
@@ -536,15 +596,115 @@
     <string>关于</string>
    </property>
   </action>
-  <action name="actionhj">
+  <action name="actionopenTcp">
+   <property name="text">
+    <string>打开本地监听端口</string>
+   </property>
+  </action>
+  <action name="actioncloseTcp">
+   <property name="text">
+    <string>关闭监听保存文件</string>
+   </property>
+  </action>
+  <action name="actionfile">
+   <property name="text">
+    <string>读取文件</string>
+   </property>
+  </action>
+  <action name="actionloadFile">
+   <property name="text">
+    <string>读取文件</string>
+   </property>
+  </action>
+  <action name="actiondataPicture">
+   <property name="text">
+    <string>数据可视化</string>
+   </property>
+  </action>
+  <action name="actionAMOLED">
+   <property name="text">
+    <string>AMOLED</string>
+   </property>
+  </action>
+  <action name="actionConsoleStyle">
+   <property name="text">
+    <string>ConsoleStyle</string>
+   </property>
+  </action>
+  <action name="actionManjaroMix">
+   <property name="text">
+    <string>ManjaroMix</string>
+   </property>
+  </action>
+  <action name="actionMatrialDark">
+   <property name="text">
+    <string>MatrialDark</string>
+   </property>
+  </action>
+  <action name="actionpoint_2">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>主题</string>
+    <string>绘制散点</string>
+   </property>
+  </action>
+  <action name="actiontriangleColor">
+   <property name="text">
+    <string>三角形上色</string>
+   </property>
+  </action>
+  <action name="actiontriangle_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>绘制三角形</string>
+   </property>
+   <property name="iconText">
+    <string>三角形上色</string>
+   </property>
+  </action>
+  <action name="actiontriangleColor_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>三角形上色</string>
+   </property>
+  </action>
+  <action name="actionpointColor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>散点上色</string>
+   </property>
+  </action>
+  <action name="actiondefault">
+   <property name="text">
+    <string>default</string>
+   </property>
+  </action>
+  <action name="actionHV">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>绘制高压边界</string>
+   </property>
+  </action>
+  <action name="actionGND">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>绘制低压边界</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../cmake-build-debug/resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
