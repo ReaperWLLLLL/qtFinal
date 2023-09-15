@@ -795,78 +795,78 @@ namespace ui {
             }
 
             //根据三点的record为三角形填充颜色，最高为红色，最低为蓝色
-            if(drawTriangleColorFlag){
+            if (drawTriangleColorFlag) {
                 //遍历三角形
-                for(int i=0;i<el2noVecSize;i++){
+                for (int i = 0; i < el2noVecSize; i++) {
                     //获取三角形的三个点的record
-                    double record1=record[el2no1[i]];
-                    double record2=record[el2no2[i]];
-                    double record3=record[el2no3[i]];
+                    double record1 = record[el2no1[i]];
+                    double record2 = record[el2no2[i]];
+                    double record3 = record[el2no3[i]];
                     //将record最大的点的坐标设置为x1,y1，record最小的点的坐标设置为x3,y3，中间值的点的坐标设置为x2,y2
-                    int x1,y1,x2,y2,x3,y3;
-                    if(record1>record2&&record1>record3){
-                        x1=xPixel[el2no1[i]];
-                        y1=yPixel[el2no1[i]];
-                        if(record2>record3){
-                            x2=xPixel[el2no2[i]];
-                            y2=yPixel[el2no2[i]];
-                            x3=xPixel[el2no3[i]];
-                            y3=yPixel[el2no3[i]];
-                        }else{
-                            x2=xPixel[el2no3[i]];
-                            y2=yPixel[el2no3[i]];
-                            x3=xPixel[el2no2[i]];
-                            y3=yPixel[el2no2[i]];
+                    int x1, y1, x2, y2, x3, y3;
+                    if (record1 > record2 && record1 > record3) {
+                        x1 = xPixel[el2no1[i]];
+                        y1 = yPixel[el2no1[i]];
+                        if (record2 > record3) {
+                            x2 = xPixel[el2no2[i]];
+                            y2 = yPixel[el2no2[i]];
+                            x3 = xPixel[el2no3[i]];
+                            y3 = yPixel[el2no3[i]];
+                        } else {
+                            x2 = xPixel[el2no3[i]];
+                            y2 = yPixel[el2no3[i]];
+                            x3 = xPixel[el2no2[i]];
+                            y3 = yPixel[el2no2[i]];
                         }
-                    }else if(record2>record1&&record2>record3){
-                        x1=xPixel[el2no2[i]];
-                        y1=yPixel[el2no2[i]];
-                        if(record1>record3){
-                            x2=xPixel[el2no1[i]];
-                            y2=yPixel[el2no1[i]];
-                            x3=xPixel[el2no3[i]];
-                            y3=yPixel[el2no3[i]];
-                        }else{
-                            x2=xPixel[el2no3[i]];
-                            y2=yPixel[el2no3[i]];
-                            x3=xPixel[el2no1[i]];
-                            y3=yPixel[el2no1[i]];
+                    } else if (record2 > record1 && record2 > record3) {
+                        x1 = xPixel[el2no2[i]];
+                        y1 = yPixel[el2no2[i]];
+                        if (record1 > record3) {
+                            x2 = xPixel[el2no1[i]];
+                            y2 = yPixel[el2no1[i]];
+                            x3 = xPixel[el2no3[i]];
+                            y3 = yPixel[el2no3[i]];
+                        } else {
+                            x2 = xPixel[el2no3[i]];
+                            y2 = yPixel[el2no3[i]];
+                            x3 = xPixel[el2no1[i]];
+                            y3 = yPixel[el2no1[i]];
                         }
-                    }else{
-                        x1=xPixel[el2no3[i]];
-                        y1=yPixel[el2no3[i]];
-                        if(record1>record2){
-                            x2=xPixel[el2no1[i]];
-                            y2=yPixel[el2no1[i]];
-                            x3=xPixel[el2no2[i]];
-                            y3=yPixel[el2no2[i]];
-                        }else{
-                            x2=xPixel[el2no2[i]];
-                            y2=yPixel[el2no2[i]];
-                            x3=xPixel[el2no1[i]];
-                            y3=yPixel[el2no1[i]];
+                    } else {
+                        x1 = xPixel[el2no3[i]];
+                        y1 = yPixel[el2no3[i]];
+                        if (record1 > record2) {
+                            x2 = xPixel[el2no1[i]];
+                            y2 = yPixel[el2no1[i]];
+                            x3 = xPixel[el2no2[i]];
+                            y3 = yPixel[el2no2[i]];
+                        } else {
+                            x2 = xPixel[el2no2[i]];
+                            y2 = yPixel[el2no2[i]];
+                            x3 = xPixel[el2no1[i]];
+                            y3 = yPixel[el2no1[i]];
                         }
                     }//脏代码
                     //获取三角形的三个点的颜色
-                    int color1=(int)((record1-recordMin)/(recordMax-recordMin)*255);
-                    int color2=(int)((record2-recordMin)/(recordMax-recordMin)*255);
-                    int color3=(int)((record3-recordMin)/(recordMax-recordMin)*255);
+                    int color1 = (int) ((record1 - recordMin) / (recordMax - recordMin) * 255);
+                    int color2 = (int) ((record2 - recordMin) / (recordMax - recordMin) * 255);
+                    int color3 = (int) ((record3 - recordMin) / (recordMax - recordMin) * 255);
                     //设置三角形的颜色
                     QPolygon polygon;
-                    polygon.setPoints(3,x1,y1,x2,y2,x3,y3);
+                    polygon.setPoints(3, x1, y1, x2, y2, x3, y3);
                     //设置渐变从x1,y1到x3,y3
-                    QLinearGradient gradient(x1,y1,x3,y3);
+                    QLinearGradient gradient(x1, y1, x3, y3);
                     //将color存储入vector
                     vector<int> color;
                     color.push_back(color1);
                     color.push_back(color2);
                     color.push_back(color3);
                     //将color从大到小排序
-                    sort(color.begin(),color.end(),greater<int>());
+                    sort(color.begin(), color.end(), greater<int>());
                     //设置渐变的颜色
-                    gradient.setColorAt(0,QColor(color[0],0,255-color[0]));
-                    gradient.setColorAt(0.5,QColor(color[1],0,255-color[1]));
-                    gradient.setColorAt(1,QColor(color[2],0,255-color[2]));
+                    gradient.setColorAt(0, QColor(color[0], 0, 255 - color[0]));
+                    gradient.setColorAt(0.5, QColor(color[1], 0, 255 - color[1]));
+                    gradient.setColorAt(1, QColor(color[2], 0, 255 - color[2]));
 
                     painter.setBrush(gradient);
                     //将多边形的边线设置为透明
@@ -926,69 +926,63 @@ namespace ui {
     }
 
     void MainWindow::on_actionpoint_2_triggered() {
-        if(ui->actionpoint_2->isChecked()){
-            drawPointFlag=true;
+        if (ui->actionpoint_2->isChecked()) {
+            drawPointFlag = true;
+        } else {
+            drawPointFlag = false;
         }
-        else{
-            drawPointFlag=false;
-        }
-        drawFlag=true;
+        drawFlag = true;
         update();
     }
 
     void MainWindow::on_actionpointColor_triggered() {
-        if(ui->actionpointColor->isChecked()){
-            drawPointColorFlag=true;
+        if (ui->actionpointColor->isChecked()) {
+            drawPointColorFlag = true;
+        } else {
+            drawPointColorFlag = false;
         }
-        else{
-            drawPointColorFlag=false;
-        }
-        drawFlag=true;
+        drawFlag = true;
         update();
     }
 
     void MainWindow::on_actiontriangle_2_triggered() {
-        if(ui->actiontriangle_2->isChecked()){
-            drawTriangleFlag=true;
+        if (ui->actiontriangle_2->isChecked()) {
+            drawTriangleFlag = true;
+        } else {
+            drawTriangleFlag = false;
         }
-        else{
-            drawTriangleFlag=false;
-        }
-        drawFlag=true;
+        drawFlag = true;
         update();
     }
 
     void MainWindow::on_actiontriangleColor_2_triggered() {
-        if(ui->actiontriangleColor_2->isChecked()){
-            drawTriangleColorFlag=true;
+        if (ui->actiontriangleColor_2->isChecked()) {
+            drawTriangleColorFlag = true;
+        } else {
+            drawTriangleColorFlag = false;
         }
-        else{
-            drawTriangleColorFlag=false;
-        }
-        drawFlag=true;
+        drawFlag = true;
         update();
     }
 
     void MainWindow::on_actionGND_triggered() {
-        if(ui->actionGND->isChecked()){
-            drawGNDFlag=true;
+        if (ui->actionGND->isChecked()) {
+            drawGNDFlag = true;
+        } else {
+            drawGNDFlag = false;
         }
-        else{
-            drawGNDFlag=false;
-        }
-        drawFlag=true;
+        drawFlag = true;
         update();
 
     }
 
     void MainWindow::on_actionHV_triggered() {
-        if(ui->actionHV->isChecked()){
-            drawHVFlag=true;
+        if (ui->actionHV->isChecked()) {
+            drawHVFlag = true;
+        } else {
+            drawHVFlag = false;
         }
-        else{
-            drawHVFlag=false;
-        }
-        drawFlag=true;
+        drawFlag = true;
         update();
 
     }
