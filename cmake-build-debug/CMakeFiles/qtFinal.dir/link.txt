@@ -1,0 +1,3 @@
+"G:\software\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f CMakeFiles\qtFinal.dir/objects.a
+G:\software\QT\Tools\mingw1120_64\bin\ar.exe qc CMakeFiles\qtFinal.dir/objects.a @CMakeFiles\qtFinal.dir\objects1.rsp
+G:\software\QT\Tools\mingw1120_64\bin\c++.exe -g -Wl,--whole-archive CMakeFiles\qtFinal.dir/objects.a -Wl,--no-whole-archive -o qtFinal.exe -Wl,--out-implib,libqtFinal.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\qtFinal.dir\linkLibs.rsp

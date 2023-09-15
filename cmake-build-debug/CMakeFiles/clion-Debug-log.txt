@@ -1,0 +1,5 @@
+"G:\software\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S G:\study\2023SU\c++\clion\qtFinal -B G:\study\2023SU\c++\clion\qtFinal\cmake-build-debug
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Configuring done (0.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: G:/study/2023SU/c++/clion/qtFinal/cmake-build-debug
