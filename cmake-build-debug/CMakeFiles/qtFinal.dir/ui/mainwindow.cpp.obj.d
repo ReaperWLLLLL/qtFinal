@@ -406,6 +406,8 @@ CMakeFiles/qtFinal.dir/ui/mainwindow.cpp.obj: \
  G:/software/QT/6.5.2/mingw_64/include/QtGui/qpainter.h \
  G:/software/QT/6.5.2/mingw_64/include/QtGui/qtextoption.h \
  G:/software/QT/6.5.2/mingw_64/include/QtGui/qpen.h \
+ G:/software/QT/6.5.2/mingw_64/include/QtWidgets/QMessageBox \
+ G:/software/QT/6.5.2/mingw_64/include/QtWidgets/qmessagebox.h \
  G:\study\2023SU\c++\clion\qtFinal\ui\mainwindow.h \
  G:/software/QT/6.5.2/mingw_64/include/QtWidgets/QMainWindow \
  G:/software/QT/6.5.2/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -652,6 +654,8 @@ CMakeFiles/qtFinal.dir/ui/mainwindow.cpp.obj: \
  G:/software/QT/6.5.2/mingw_64/include/QtCore/qvariant.h \
  G:/software/QT/6.5.2/mingw_64/include/QtGui/QAction \
  G:/software/QT/6.5.2/mingw_64/include/QtGui/qaction.h \
+ G:/software/QT/6.5.2/mingw_64/include/QtGui/QIcon \
+ G:/software/QT/6.5.2/mingw_64/include/QtGui/qicon.h \
  G:/software/QT/6.5.2/mingw_64/include/QtWidgets/QApplication \
  G:/software/QT/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
  G:/software/QT/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \
